@@ -1,0 +1,53 @@
+
+# Практична робота: білет №15
+# Тема: Медичний запис
+
+# Отримуємо вхідні дані пацієнта
+name = input("Ім'я пацієнта: ")
+age = int(input("Вік: "))
+free_slots = int(input("Кількість вільних записів: "))
+days_until = int(input("Кількість днів до прийому: "))
+referral = input("Направлення (так/ні): ")
+
+# Перевіряємо вік від 0 до 120 років
+valid_age = age >= 0 and age <= 120
+
+# Перевіряємо наявність вільних записів
+has_slots = free_slots > 0
+
+# Перевіряємо дату прийому від 0 до 30 днів
+valid_date = days_until >= 0 and days_until <= 30
+
+# Перевіряємо наявність направлення
+has_referral = referral == "так"
+
+# Перевіряємо всі умови медичного запису
+can_book = valid_age and has_slots and valid_date and has_referral
+
+# Перевіряємо, чи пацієнт молодший за 18 років
+is_minor = age < 18
+
+# Перевіряємо, чи прийом сьогодні
+is_today = days_until == 0
+
+# Перевіряємо відсутність направлення
+no_referral = not has_referral
+
+# Перевіряємо прийом протягом 7 днів
+within_week = days_until >= 0 and days_until <= 7
+
+# Перевіряємо неможливість запису
+cannot_book = not can_book
+
+# Виводимо результати
+print("Пацієнт:", name)
+print("Вік відповідає вимогам:", valid_age)
+print("Є вільні записи:", has_slots)
+print("Дата прийому відповідає вимогам:", valid_date)
+print("Є направлення:", has_referral)
+print("Можна записатися:", can_book)
+print("Пацієнт молодший за 18 років:", is_minor)
+print("Прийом сьогодні:", is_today)
+print("Немає направлення:", no_referral)
+print("Прийом протягом 7 днів:", within_week)
+print("Неможливо записатися:", cannot_book)
